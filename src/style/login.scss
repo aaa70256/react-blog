@@ -1,0 +1,35 @@
+.login_box{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 553;
+    font-style: italic;
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+  //class name 寫在components內 不是page內  
+  .error_alert{
+    margin-bottom: 10px;
+  }
+  .input_box{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+  }
+  span{
+    font-family: "Playwrite GB S", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 24px;
+    margin-right: 5px;
+  }
+  .login_button{
+    margin-top: 30px;
+  }
+}

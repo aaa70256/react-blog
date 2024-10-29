@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Josefin+Sans&family=Jost:ital,wght@0,100..900;1,100..900&family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=Noto+Sans+HK&family=Noto+Serif:wdth,wght@87.5,300&family=Oxanium:wght@200..800;488&family=Playwrite+GB+S:ital@0;1&family=Silkscreen:wght@400;700&family=Zhi+Mang+Xing&display=swap');
+
+.post_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  .loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(61, 59, 59, 0.466);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p{
+    font-size: 40px;
+    font-family: "Liu Jian Mao Cao", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .post_content{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 16px;
+  }
+}

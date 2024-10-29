@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoadingButton from '@mui/lab/LoadingButton';
 import "../style/login.scss";
 import { LoginInput } from "../components/Input";
 import { ErrorAlert } from "../components/Alert";
 import { useNavigate } from 'react-router-dom'
+import { getServer } from "../service/api";
+import { removeItem,setItem } from "../utils/localStorage";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -13,20 +15,35 @@ function LoginPage() {
     password: '',
   });
   const [showError,setShowError] = useState(false);
+  const [data,setData] = useState([]);
+  useEffect(()=>{
+    removeItem("user");
+    const api = getServer.users();
+    setData(api);
+  },[])
 
   const loginHandler =()=>{
-    const data = user.account == "" || user.password == "" ? true:false;
-    setShowError(data);
-    setLoading(()=>{
-      return data? false:true;
+    data.then(res=>{
+      if(res.status == 200){
+        const respomse = res.data;
+        const filterData = respomse.filter(item=>{
+          return item.id == user.account
+        })
+        if(filterData.length >0){
+          setLoading(true);
+          routerHomePage();
+          const item = filterData[0]
+          setItem("user",item)
+        }else{
+          setShowError(true)
+        }
+      }
     })
-    if(data == false){
-      routerHomePage();
-    }
   }
 
   const routerHomePage = ()=>{
-    navigate('/');
+    navigate('/home');
+    setLoading(false);
   }
   
   return (
@@ -43,7 +60,7 @@ function LoginPage() {
           variant="contained"
         >
           Log In
-        </LoadingButton>
+      </LoadingButton>
     </div>
   )
 }

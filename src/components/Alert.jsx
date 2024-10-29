@@ -19,3 +19,21 @@ export const ErrorAlert = ({content,showAlert}) => {
     </>
   )
 }
+
+export const SuccessAlert = ({content,showAlert})=>{
+  const [open,setOpen] = useState(false);
+  console.log(showAlert);
+  
+  useEffect(()=>{
+    if(showAlert == true){
+      setOpen(true);
+    }
+  },[showAlert])
+  return(
+    <Collapse in={open}>
+      <Alert variant="filled" severity="success">
+        {content}
+      </Alert>
+    </Collapse>
+  )
+}

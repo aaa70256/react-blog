@@ -1,0 +1,10 @@
+.home_page{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .non_post{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(153, 187, 218);
+  }
+}

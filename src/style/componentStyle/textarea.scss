@@ -7,10 +7,15 @@
   font-size: 1rem;
   line-height: 1.5;
   resize: vertical; // 允許垂直調整大小
-  
+
   &:focus {
     outline: none; // 移除默認的 focus 輪廓
     border-color: rgb(63 131 248);
     box-shadow: 0 0 0 3px rgba(63, 131, 248, 0.2);
   }
+}
+
+.success_alert_container {
+  position: fixed;
+  left: 55%;
 }

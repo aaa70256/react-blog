@@ -1,9 +1,9 @@
 import NavBar from "./components/NavBar"
 import Search from "./components/Search";
 import "./style/app.scss"
-import { Outlet,useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { getServer } from "./service/api";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -16,17 +16,13 @@ function App() {
     navigate(path);
   }
 
-  useEffect(()=>{
-    getServer.users();
-  },[])
-  
   return (
     <>
       <div className="app_container">
-        <NavBar onRouteChange={handleRoute}/>
+        <NavBar onRouteChange={handleRoute} />
         <div className="app_content">
           <Search />
-          <Outlet />    
+          <Outlet />
         </div>
       </div>
     </>

@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import BasicMenu from "../components/Menu";
+import { BasicMenu } from "../components/Menu";
 import "../style/componentStyle/card.scss"
+import { photoUrl } from "../utils/dynamicAddPhoto";
+import { dayFormat } from "../utils/dateHandle";
 
-export const PostsCard = ({content})=> {
+
+export const PostsCard = ({ data }) => {
+  const url = photoUrl(data.headshot)
+  const time = dayFormat(data.posttime, 'MMM DD YY - hh:mm');
+
   return (
     <div className='card_container'>
       <Card sx={{ minWidth: 800 }}>
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe">
-              R
-            </Avatar>
+            // <Avatar aria-label="recipe">
+            //   R
+            // </Avatar>
+            <Avatar alt="Remy Sharp" src={url} />
           }
           action={
             <BasicMenu />
           }
-          title="66666"
-          subheader="September 14, 2016"
+          title={data.name}
+          subheader={time}
         />
         <CardContent>
-         {content}
+          {data.content}
         </CardContent>
         {/* <CardActions>
           <Button size="small">Learn More</Button>

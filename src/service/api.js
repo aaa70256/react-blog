@@ -19,5 +19,10 @@ export const getServer = {
 };
 
 export const postServer = {
-  posts: (data) => api.post('/posts',data),
+  posts: (data) => api.post('/posts', data),
+};
+
+export const patchServer = {
+  posts: (id, data) => api.patch(`/posts/${id}`, data),
+  users: (id, data) => api.patch(`/users/${id}`, data),
 };

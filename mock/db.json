@@ -1,69 +1,84 @@
 {
   "posts": [
     {
-      "id": "0335",
-      "content": "sdasdasd",
-      "posttime": "2024-10-30T06:34:13.050Z",
-      "userId": "allies32598",
-      "headshot": "Qhead.png",
-      "name": "Allies"
+      "id": "6a86",
+      "content": "666",
+      "posttime": "2024-11-01T16:08:50.063Z",
+      "userId": "peter98699",
+      "headshot": "photo.jpg",
+      "name": "Peter",
+      "likers": [
+        "allies32598"
+      ]
     },
     {
-      "id": "23bc",
-      "content": "我是春捲龍",
-      "posttime": "2024-10-30T06:36:40.540Z",
+      "id": "f9ac",
+      "content": "vdvdxvdsvd",
+      "posttime": "2024-11-02T07:38:03.744Z",
       "userId": "steven7587",
       "headshot": "teacher.jpg",
-      "name": "Steven"
+      "name": "Steven",
+      "likers": [],
+      "followers": []
     },
     {
-      "id": "0202",
-      "content": "明天放颱風假  耶斯",
-      "posttime": "2024-10-30T08:14:24.971Z",
-      "userId": "peter98699",
-      "headshot": "photo.jpg",
-      "name": "Peter"
+      "id": "97f5",
+      "content": "dsvdsvdsv",
+      "posttime": "2024-11-02T07:38:09.369Z",
+      "userId": "steven7587",
+      "headshot": "teacher.jpg",
+      "name": "Steven",
+      "likers": [
+        "allies32598"
+      ],
+      "followers": []
     },
     {
-      "id": "c0b0",
-      "content": "Offff",
-      "posttime": "2024-10-30T08:16:15.858Z",
+      "id": "3b75",
+      "content": "sdvdsvdsvdsv",
+      "posttime": "2024-11-02T07:38:17.672Z",
       "userId": "peter98699",
       "headshot": "photo.jpg",
-      "name": "Peter"
+      "name": "Peter",
+      "likers": [],
+      "followers": []
     },
     {
-      "id": "a6c8",
-      "content": "測試alert",
-      "posttime": "2024-10-30T08:17:25.225Z",
-      "userId": "peter98699",
-      "headshot": "photo.jpg",
-      "name": "Peter"
-    },
-    {
-      "id": "223e",
-      "content": "setimeout測試",
-      "posttime": "2024-10-30T08:18:17.055Z",
-      "userId": "peter98699",
-      "headshot": "photo.jpg",
-      "name": "Peter"
+      "id": "332e",
+      "content": "sllikee",
+      "posttime": "2024-11-02T08:00:23.085Z",
+      "userId": "allies32598",
+      "headshot": "Qhead.png",
+      "name": "Allies",
+      "likers": [],
+      "followers": []
     }
   ],
   "users": [
     {
       "name": "Steven",
       "headshot": "teacher.jpg",
-      "id": "steven7587"
+      "id": "steven7587",
+      "followers": [
+        "allies32598",
+        "peter98699"
+      ]
     },
     {
       "name": "Allies",
       "headshot": "Qhead.png",
-      "id": "allies32598"
+      "id": "allies32598",
+      "followers": [
+        "steven7587"
+      ]
     },
     {
       "name": "Peter",
       "headshot": "photo.jpg",
-      "id": "peter98699"
+      "id": "peter98699",
+      "followers": [
+        "steven7587"
+      ]
     }
   ],
   "comments": []

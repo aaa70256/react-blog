@@ -1,14 +1,20 @@
-.app_container{
+.app_container {
   display: flex;
-  .app_content{
+
+  .app_content {
     width: 900px;
     margin: 30px 0 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50PX;
-    .home_search{
+    gap: 50px;
+
+    .home_search {
       width: 50%;
     }
+  }
+
+  .app_content_non_gap {
+    gap: 0;
   }
 }

@@ -52,8 +52,8 @@ function NavBar({ onRouteChange }) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => { routePageHandler("/") }}>
-              <ListItemText primary="ＳＥＴＴＩＮＧ" />
+            <ListItemButton onClick={() => { routePageHandler("/profile") }}>
+              <ListItemText primary="ＰＲＯＦＩＬＥ" />
             </ListItemButton>
           </ListItem>
         </List>

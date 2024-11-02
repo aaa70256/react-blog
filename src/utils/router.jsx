@@ -3,6 +3,7 @@ import App from '../App';
 import LoginPage from '../pages/LoginPage';
 import PostPage from '../pages/PostPage';
 import HomePage from '../pages/HomePage';
+import ProfilePage from '../pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "posts",
         element: <PostPage />
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />
       },
     ]
   }

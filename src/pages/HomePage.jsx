@@ -25,7 +25,7 @@ function HomePage() {
     <div className='home_page'>
       {posts.length > 0 ? (posts.map(item => (
         <PostsCard
-          key={item.id}  // 最好使用唯一的 id
+          key={item.id}
           data={item}
         />
       ))) : (

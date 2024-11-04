@@ -11,6 +11,7 @@ function ProfilePage() {
   const [url, setUrl] = useState("");
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState({});
+  const [followersNum, setFollowersNum] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,6 +28,9 @@ function ProfilePage() {
 
   useEffect(() => {
     setUrl(photoUrl(user.headshot));
+    if (user && user.followers) {
+      setFollowersNum(user.followers.length);
+    }
   }, [user])
 
   return (
@@ -40,8 +44,8 @@ function ProfilePage() {
         <h2>{user.name}</h2>
         <p>@{user.id}</p>
         <div className='follow_content'>
-          <span>10 fllowing</span>
-          <span>200 followers</span>
+          <span>{followersNum} following</span>
+          <span>0 followers</span>
         </div>
       </div>
       <TabItem posts={posts} />

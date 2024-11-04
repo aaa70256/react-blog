@@ -1,20 +1,9 @@
 {
   "posts": [
     {
-      "id": "6a86",
-      "content": "666",
-      "posttime": "2024-11-01T16:08:50.063Z",
-      "userId": "peter98699",
-      "headshot": "photo.jpg",
-      "name": "Peter",
-      "likers": [
-        "allies32598"
-      ]
-    },
-    {
-      "id": "f9ac",
-      "content": "vdvdxvdsvd",
-      "posttime": "2024-11-02T07:38:03.744Z",
+      "id": "3ae5",
+      "content": "test1",
+      "posttime": "2024-11-04T08:28:18.718Z",
       "userId": "steven7587",
       "headshot": "teacher.jpg",
       "name": "Steven",
@@ -22,21 +11,9 @@
       "followers": []
     },
     {
-      "id": "97f5",
-      "content": "dsvdsvdsv",
-      "posttime": "2024-11-02T07:38:09.369Z",
-      "userId": "steven7587",
-      "headshot": "teacher.jpg",
-      "name": "Steven",
-      "likers": [
-        "allies32598"
-      ],
-      "followers": []
-    },
-    {
-      "id": "3b75",
-      "content": "sdvdsvdsvdsv",
-      "posttime": "2024-11-02T07:38:17.672Z",
+      "id": "9a75",
+      "content": "test2",
+      "posttime": "2024-11-04T08:28:39.780Z",
       "userId": "peter98699",
       "headshot": "photo.jpg",
       "name": "Peter",
@@ -44,14 +21,55 @@
       "followers": []
     },
     {
-      "id": "332e",
-      "content": "sllikee",
-      "posttime": "2024-11-02T08:00:23.085Z",
+      "id": "5cb9",
+      "content": "test3",
+      "posttime": "2024-11-04T08:28:54.626Z",
       "userId": "allies32598",
       "headshot": "Qhead.png",
       "name": "Allies",
       "likers": [],
       "followers": []
+    },
+    {
+      "id": "2ce3",
+      "content": "test4",
+      "posttime": "2024-11-04T08:29:17.185Z",
+      "userId": "steven7587",
+      "headshot": "teacher.jpg",
+      "name": "Steven",
+      "likers": [],
+      "followers": []
+    },
+    {
+      "id": "e1df",
+      "content": "test5",
+      "posttime": "2024-11-04T08:29:28.973Z",
+      "userId": "peter98699",
+      "headshot": "photo.jpg",
+      "name": "Peter",
+      "likers": [],
+      "followers": []
+    },
+    {
+      "id": "f8a4",
+      "content": "test6",
+      "posttime": "2024-11-04T08:29:46.960Z",
+      "userId": "allies32598",
+      "headshot": "Qhead.png",
+      "name": "Allies",
+      "likers": [],
+      "followers": []
+    },
+    {
+      "id": "712f",
+      "content": "asdsadas",
+      "posttime": "2024-11-04T09:12:53.082Z",
+      "userId": "allies32598",
+      "headshot": "Qhead.png",
+      "name": "Allies",
+      "likers": [],
+      "followers": [],
+      "fans": []
     }
   ],
   "users": [
@@ -60,25 +78,25 @@
       "headshot": "teacher.jpg",
       "id": "steven7587",
       "followers": [
-        "allies32598",
-        "peter98699"
-      ]
+        "allies32598"
+      ],
+      "fans": []
     },
     {
       "name": "Allies",
       "headshot": "Qhead.png",
       "id": "allies32598",
-      "followers": [
-        "steven7587"
-      ]
+      "followers": [],
+      "fans": []
     },
     {
       "name": "Peter",
       "headshot": "photo.jpg",
       "id": "peter98699",
       "followers": [
-        "steven7587"
-      ]
+        "allies32598"
+      ],
+      "fans": []
     }
   ],
   "comments": []

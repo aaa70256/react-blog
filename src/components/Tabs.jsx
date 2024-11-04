@@ -11,14 +11,32 @@ export const TabItem = ({ posts }) => {
   const [value, setValue] = useState("1");
   const [filterPosts, setFilterPosts] = useState([]);
   const [userId, setUserId] = useState("");
+  const [followAry, setFollowAry] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(filterPosts);
+
+    if (newValue == 1) {
+      const filtered = posts.filter(item => userId === item.userId);
+      setFilterPosts(filtered);
+    } else if (newValue == 2) {
+      let filtData = []
+      posts.forEach(el => {
+        followAry.forEach(val => {
+          if (val == el.userId) {
+            filtData.push(el);
+          }
+        })
+      });
+      setFilterPosts(filtData);
+    }
   };
   useEffect(() => {
     const user = JSON.parse(getItem("user"));
-    if (user && user.id) {
+    if (user) {
       setUserId(user.id);
+      setFollowAry(user.followers);
     }
   }, []);
 
@@ -32,6 +50,8 @@ export const TabItem = ({ posts }) => {
     }
     fetchPosts();
   }, [posts, userId]);
+
+
 
   return (
     <div className='tabs_container'>
@@ -49,7 +69,14 @@ export const TabItem = ({ posts }) => {
             />
           ))}
         </TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="2">
+          {filterPosts.map(item => (
+            <PostsCard
+              key={item.id}
+              data={item}
+            />
+          ))}
+        </TabPanel>
         <TabPanel value="3">Item Three</TabPanel>
       </TabContext>
     </div>

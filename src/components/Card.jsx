@@ -62,7 +62,7 @@ export const PostsCard = ({ data }) => {
           {data.content}
         </CardContent>
         <CardActions>
-          <IconButton aria-label="add to favorites" color={iconColor} onClick={iconClickHandler}>
+          <IconButton aria-label="add to favorites" color={iconColor} onClick={iconClickHandler} size="medium">
             <FavoriteIcon />
           </IconButton>
         </CardActions>

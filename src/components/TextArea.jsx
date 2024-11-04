@@ -21,7 +21,7 @@ function TextArea({ checkSubmit, setOpen, setSubmit }) {
         headshot: JSON.parse(getItem("user")).headshot,
         name: JSON.parse(getItem("user")).name,
         likers: [],
-        followers: []
+        followers: [],
       }
       postServer.posts(data).then(res => {
         if (res.status == 201) {

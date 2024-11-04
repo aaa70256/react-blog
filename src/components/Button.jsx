@@ -9,8 +9,9 @@ export const FollowButton = ({ data, user }) => {
   const [variant, setVariant] = useState("");
   const [followAry, setFollowAry] = useState([]);
   const { value } = useContext(MyContext);
-  const [filterUser, setFiltUser] = useState([])
+  const [filterUser, setFiltUser] = useState([]);
   const [useId, setUserId] = useState("");
+  const [fans, setFans] = useState([]);
 
 
   useEffect(() => {
@@ -64,6 +65,24 @@ export const FollowButton = ({ data, user }) => {
 
     setFollowAry(updatedFollowAry);
     patchServer.users(useId, { followers: updatedFollowAry });
+    manangeFans();
+  }
+
+  function manangeFans() {
+    console.log(data, user, value);
+    const filtUser = value.filter(item => item.id == data.userId);
+    const fansData = filtUser[0].fans;
+    let fans = [];
+    if (fansData.length == 0) {
+      fans = [useId];
+    } else {
+      const hasFans = fansData.some(user => user === useId);
+      fans = hasFans
+        ? fansData.filter(item => item !== useId)
+        : [...fansData, useId];
+    }
+
+    patchServer.users(data.userId, { fans: fans });
   }
   return (
     <div>

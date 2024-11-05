@@ -1,8 +1,17 @@
-# React + Vite
+**概述**: 部落格，專案使用react套件，搭配json-server模擬資料庫。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Install**
+```
+npm install
+```
 
-Currently, two official plugins are available:
+**json-server**  
+需先將json-server服務開啟，才能進行資料的操作
+```
+npm run json
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**start**
+```
+npm run dev
+```

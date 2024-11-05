@@ -12,26 +12,34 @@ function ProfilePage() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState({});
   const [followersNum, setFollowersNum] = useState(null);
+  const [fans, setFans] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response = await getServer.posts();
-        const data = newDaySort(response.data);
-        setPosts(data);
-        setUser(JSON.parse(getItem("user")));
+        const sortedData = newDaySort(response.data);
+        setPosts(sortedData);
+
+        const storedUser = JSON.parse(getItem("user"));
+        setUser(storedUser);
+        setFans(storedUser.followers.length);
+        if (storedUser) {
+          setUrl(photoUrl(storedUser.headshot));
+
+          if (storedUser.followers) {
+            setFollowersNum(storedUser.followers.length);
+          }
+        }
+
+
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
     };
-    fetchData();
-  }, [])
 
-  useEffect(() => {
-    setUrl(photoUrl(user.headshot));
-    if (user && user.followers) {
-      setFollowersNum(user.followers.length);
-    }
-  }, [user])
+    fetchData();
+  }, []);
 
   return (
     <div className='profile_container'>
@@ -45,7 +53,7 @@ function ProfilePage() {
         <p>@{user.id}</p>
         <div className='follow_content'>
           <span>{followersNum} following</span>
-          <span>0 followers</span>
+          <span>{fans} followers</span>
         </div>
       </div>
       <TabItem posts={posts} />

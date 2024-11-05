@@ -16,8 +16,11 @@ function LoginPage() {
   });
   const [showError, setShowError] = useState(false);
   const [data, setData] = useState([]);
+
+
   useEffect(() => {
     removeItem("user");
+    removeItem("fans");
     const api = getServer.users();
     setData(api);
   }, [])
@@ -29,6 +32,7 @@ function LoginPage() {
         const filterData = respomse.filter(item => {
           return item.id == user.account
         })
+        fansNumRecord(filterData[0].id)
         if (filterData.length > 0) {
           setLoading(true);
           routerHomePage();
@@ -41,6 +45,15 @@ function LoginPage() {
         }
       }
     })
+  }
+
+  const fansNumRecord = async (id) => {
+    try {
+      const fanData = await getServer.fansNum(id);
+      setItem("fans", fanData.data.fans)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const routerHomePage = () => {

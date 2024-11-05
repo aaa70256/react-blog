@@ -66,6 +66,7 @@ export const UserMenu = ({ show, currentTarget, setOpen }) => {
   const logOutHandler = () => {
     handleClose(); // 註冊 handleClose 在菜單項目上
     removeItem("user");
+    removeItem("fans");
     navigate('login');
   };
 

@@ -32,8 +32,6 @@ export const PostsCard = ({ data }) => {
     setIconColor(hasId ? "error" : "default");
   }, [likerAry]);
 
-
-
   function iconClickHandler() {
     const updatedLikerAry = iconColor === "error"
       ? likerAry.filter(item => item !== user.id)
@@ -42,7 +40,6 @@ export const PostsCard = ({ data }) => {
     setLikerAry(updatedLikerAry);
     setIconColor(iconColor === "error" ? "default" : "error");
   }
-
   return (
     <div className='card_container'>
       <Card sx={{ minWidth: 800 }}>

@@ -6,7 +6,6 @@ import { newDaySort } from "../utils/dateHandle";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {

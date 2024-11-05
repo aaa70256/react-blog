@@ -4,9 +4,10 @@ import NavBar from "./components/NavBar"
 import { AutocompleteInput } from "./components/Autocomplete";
 import "./style/app.scss"
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import MyContext from './utils/userContext';
+import MyContext from './utils/context/userContext';
 import { getServer } from "./service/api";
 import Collapse from '@mui/material/Collapse';
+import { UpdateProvider } from "./utils/context/updateData";
 
 
 function App() {
@@ -41,10 +42,12 @@ function App() {
       <div className="app_container">
         <NavBar onRouteChange={handleRoute} />
         <div className={appClass}>
-          <Collapse in={open}>
-            <AutocompleteInput />
-          </Collapse>
-          <Outlet />
+          <UpdateProvider>
+            <Collapse in={open}>
+              <AutocompleteInput />
+            </Collapse>
+            <Outlet />
+          </UpdateProvider>
         </div>
       </div>
     </>

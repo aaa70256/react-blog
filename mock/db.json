@@ -47,7 +47,9 @@
       "userId": "peter98699",
       "headshot": "photo.jpg",
       "name": "Peter",
-      "likers": [],
+      "likers": [
+        "peter98699"
+      ],
       "followers": []
     },
     {
@@ -57,7 +59,9 @@
       "userId": "allies32598",
       "headshot": "Qhead.png",
       "name": "Allies",
-      "likers": [],
+      "likers": [
+        "peter98699"
+      ],
       "followers": []
     },
     {
@@ -77,26 +81,45 @@
       "name": "Steven",
       "headshot": "teacher.jpg",
       "id": "steven7587",
-      "followers": [
-        "allies32598"
-      ],
-      "fans": []
+      "followers": []
     },
     {
       "name": "Allies",
       "headshot": "Qhead.png",
       "id": "allies32598",
-      "followers": [],
-      "fans": []
+      "followers": [
+        "steven7587"
+      ]
     },
     {
       "name": "Peter",
       "headshot": "photo.jpg",
       "id": "peter98699",
       "followers": [
+        "allies32598",
+        "steven7587"
+      ]
+    }
+  ],
+  "fansNum": [
+    {
+      "id": "peter98699",
+      "fans": [
+        "steven7587"
+      ]
+    },
+    {
+      "id": "allies32598",
+      "fans": [
+        "peter98699"
+      ]
+    },
+    {
+      "id": "steven7587",
+      "fans": [
+        "peter98699",
         "allies32598"
-      ],
-      "fans": []
+      ]
     }
   ],
   "comments": []

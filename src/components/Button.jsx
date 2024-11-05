@@ -1,94 +1,81 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import PanToolAltIcon from '@mui/icons-material/PanToolAlt';
-import { patchServer } from "../service/api";
-import MyContext from '../utils/userContext';
+import { patchServer, getServer } from "../service/api";
+import MyContext from '../utils/context/userContext';
+import { setItem } from '../utils/localStorage';
+import UpdateContext from '../utils/context/updateData';
 
 export const FollowButton = ({ data, user }) => {
-  const [follow, setFollow] = useState("");
-  const [variant, setVariant] = useState("");
-  const [followAry, setFollowAry] = useState([]);
-  const { value } = useContext(MyContext);
-  const [filterUser, setFiltUser] = useState([]);
-  const [useId, setUserId] = useState("");
-  const [fans, setFans] = useState([]);
-
-
-  useEffect(() => {
-    setUserId(user.id);
-  }, []);
+  const [state, setState] = useState({
+    follow: 'Follow',
+    variant: 'outlined',
+    followAry: [],
+  });
+  const { UPData, setUPData } = useContext(UpdateContext);
+  const { value, setValue } = useContext(MyContext);
+  const [useId, setUserId] = useState(user.id);
 
   useEffect(() => {
-    const userData = value.filter(item => item.id === useId);
-    if (userData.length > 0) {
-      setFiltUser(userData[0]);
+    initializeData();
 
-      const followersArray = userData[0].followers || [];
-      setFollowAry(followersArray);
+  }, [useId, value, data.userId]);
 
-      if (followersArray.length >= 1) {
-        followersArray.forEach(el => {
-          if (el === data.userId) {
-            setFollow("Following");
-            setVariant("contained");
-          } else {
-            setFollow("Follow");
-            setVariant("outlined");
-          }
-        });
-      } else {
-        setFollow("Follow");
-        setVariant("outlined");
-      }
+  const initializeData = () => {
+    const userData = value.find(item => item.id === useId);
+    if (userData) {
+      const followersArray = userData.followers || [];
+      const isFollowing = followersArray.includes(data.userId);
+
+      setState({
+        follow: isFollowing ? 'Following' : 'Follow',
+        variant: isFollowing ? 'contained' : 'outlined',
+        followAry: followersArray,
+      });
     }
-  }, [useId, value]);
+  };
 
-  function followingHandler() {
-    let updatedFollowAry;
 
-    if (followAry.length === 0) {
-      updatedFollowAry = [...followAry, data.userId];
-      setFollow("Following");
-      setVariant("contained");
-    } else {
-      const foundUser = followAry.includes(data.userId);
-      if (!foundUser) {
-        updatedFollowAry = [...followAry, data.userId];
-        setFollow("Following");
-        setVariant("contained");
-      } else {
-        updatedFollowAry = followAry.filter(item => item !== data.userId);
-        setFollow("Follow");
-        setVariant("outlined");
-      }
-    }
 
-    setFollowAry(updatedFollowAry);
-    patchServer.users(useId, { followers: updatedFollowAry });
-    manangeFans();
+  const followingHandler = async () => {
+    const updatedFollowAry = state.followAry.includes(data.userId)
+      ? state.followAry.filter(item => item !== data.userId)
+      : [...state.followAry, data.userId];
+
+    const isFollowing = updatedFollowAry.includes(data.userId);
+
+    setState({
+      follow: isFollowing ? 'Following' : 'Follow',
+      variant: isFollowing ? 'contained' : 'outlined',
+      followAry: updatedFollowAry,
+    });
+
+    await patchServer.users(useId, { followers: updatedFollowAry });
+    await manageFans();
+  };
+
+  const manageFans = async () => {
+    const fansData = await getServer.fansNum(data.userId);
+    const fansAry = fansData.data.fans;
+    const updatedFans = fansAry.includes(useId)
+      ? fansAry.filter(item => item !== useId)
+      : [...fansAry, useId];
+
+    await patchServer.fansNum(data.userId, { fans: updatedFans });
+    reloadUserData();
+  };
+
+  const reloadUserData = async () => {
+    const api = await getServer.users("users");
+    const userData = api.data.filter(item => item.id == user.id);
+    setItem("user", userData[0]);
+    setValue(api.data);
+    setUPData(!UPData);
   }
 
-  function manangeFans() {
-    console.log(data, user, value);
-    const filtUser = value.filter(item => item.id == data.userId);
-    const fansData = filtUser[0].fans;
-    let fans = [];
-    if (fansData.length == 0) {
-      fans = [useId];
-    } else {
-      const hasFans = fansData.some(user => user === useId);
-      fans = hasFans
-        ? fansData.filter(item => item !== useId)
-        : [...fansData, useId];
-    }
-
-    patchServer.users(data.userId, { fans: fans });
-  }
   return (
-    <div>
-      <Button variant={variant} startIcon={<PanToolAltIcon />} onClick={followingHandler}>
-        {follow}
-      </Button>
-    </div>
-  )
-}
+    <Button variant={state.variant} startIcon={<PanToolAltIcon />} onClick={followingHandler}>
+      {state.follow}
+    </Button>
+  );
+};

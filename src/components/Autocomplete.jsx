@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import MyContext from '../utils/userContext';
+import MyContext from '../utils/context/userContext';
 
 export const AutocompleteInput = () => {
   const { value } = useContext(MyContext); // 使用 useContext 取得上下文中的 value 和 setValue

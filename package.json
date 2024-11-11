@@ -1,7 +1,7 @@
 {
+  "homepage": "https://aaa70256.github.io/react-blog",
   "name": "social-media",
   "private": true,
-  "homepage": "https://aaa70256.github.io/react-blog",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "json": "json-server --watch ./mock/db.json --port 8888",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -22,7 +23,6 @@
     "@toolpad/core": "^0.8.1",
     "axios": "^1.7.7",
     "dayjs": "^1.11.13",
-    "gh-pages": "^6.2.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -37,6 +37,7 @@
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
+    "gh-pages": "^6.2.0",
     "globals": "^15.11.0",
     "sass": "^1.80.6",
     "sass-loader": "^16.0.3",

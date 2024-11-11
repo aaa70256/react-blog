@@ -8,7 +8,7 @@ import { UserProvider } from './utils/context/userContext'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} basename="/react-blog/" />
     </UserProvider>
   </StrictMode>
 )

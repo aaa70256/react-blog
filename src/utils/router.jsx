@@ -34,6 +34,6 @@ export const router = createBrowserRouter([
   }
 ],
   {
-    basename: '/react-blog', // 設置基本路徑
+    basename: '/react-blog/', // 設置基本路徑
   }
 );

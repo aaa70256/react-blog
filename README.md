@@ -15,3 +15,12 @@ npm run json
 ```
 npm run dev
 ```
+
+**account1 :**  steven7587  
+**password :**  000000
+
+**account2 :**  peter98699  
+**password :**  000000
+
+**account3 :**  allies32598  
+**password :**  000000

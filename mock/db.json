@@ -48,7 +48,8 @@
       "headshot": "photo.jpg",
       "name": "Peter",
       "likers": [
-        "peter98699"
+        "peter98699",
+        "steven7587"
       ],
       "followers": []
     },
@@ -60,7 +61,8 @@
       "headshot": "Qhead.png",
       "name": "Allies",
       "likers": [
-        "peter98699"
+        "peter98699",
+        "steven7587"
       ],
       "followers": []
     },
@@ -81,7 +83,9 @@
       "name": "Steven",
       "headshot": "teacher.jpg",
       "id": "steven7587",
-      "followers": []
+      "followers": [
+        "allies32598"
+      ]
     },
     {
       "name": "Allies",
@@ -111,7 +115,8 @@
     {
       "id": "allies32598",
       "fans": [
-        "peter98699"
+        "peter98699",
+        "steven7587"
       ]
     },
     {

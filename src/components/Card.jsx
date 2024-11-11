@@ -49,7 +49,7 @@ export const PostsCard = ({ data }) => {
           }
           action={<div className='follow_content'>
             {isFollowButtonVisible && <FollowButton data={data} user={user} />}
-            <BasicMenu />
+            {/* <BasicMenu /> */}
           </div>
           }
           title={data.name}

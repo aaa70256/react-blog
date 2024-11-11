@@ -43,9 +43,9 @@ function App() {
         <NavBar onRouteChange={handleRoute} />
         <div className={appClass}>
           <UpdateProvider>
-            <Collapse in={open}>
+            {/* <Collapse in={open}>
               <AutocompleteInput />
-            </Collapse>
+            </Collapse> */}
             <Outlet />
           </UpdateProvider>
         </div>

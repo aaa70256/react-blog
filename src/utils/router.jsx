@@ -7,6 +7,10 @@ import ProfilePage from '../pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
+    index: true,  // 根路徑
+    element: <Navigate to="/login" replace /> //父元素"/"默認子路徑
+  },
+  {
     path: '/login',
     element: <LoginPage />
   },
@@ -14,10 +18,6 @@ export const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      {
-        index: true,  // 根路徑
-        element: <Navigate to="/home" replace /> //父元素"/"默認子路徑
-      },
       {
         path: "home",
         element: <HomePage />

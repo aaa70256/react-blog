@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "json": "json-server --watch ./mock/db.json --port 8888",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

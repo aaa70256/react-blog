@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import App from '../App';
 import LoginPage from '../pages/LoginPage';
 import PostPage from '../pages/PostPage';
 import HomePage from '../pages/HomePage';
 import ProfilePage from '../pages/ProfilePage';
+import App from '../App';
 
 export const router = createBrowserRouter([
   {
@@ -32,5 +32,8 @@ export const router = createBrowserRouter([
       },
     ]
   }
-]
+],
+  {
+    basename: '/react-blog', // 設置基本路徑
+  }
 );
